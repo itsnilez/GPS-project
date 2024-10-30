@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project GPS Tracking</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url(img/1433_20111714250002_67.png); /* ใส่ URL ของภาพที่ต้องการ */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* สร้างกล่องข้อความตรงกลาง */
+        .center-box {
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 15px; /* ขอบโค้ง */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เงา */
+            text-align: center;
+        }
+    </style>
+    <script>
+        // กำหนดค่าตัวแปรเริ่มต้น
+        let count = 0;
+
+        // ฟังก์ชันเพิ่มค่าและเปลี่ยนหน้า
+        function incrementAndRedirect() {
+            count += 1; // บวกค่าตัวแปรเพิ่มทีละ 1
+            const username = document.getElementById("id").value; // ดึงค่าชื่อผู้ใช้
+            const password = document.getElementById("pw").value; // ดึงค่ารหัสผ่าน
+
+            if (count > 0 && username == "6513100200" && password == "15072560") {
+                window.location.href = "http://127.0.0.1:5500/Page2.html"; // ใส่ URL ที่ต้องการเปลี่ยนไป
+            }
+            else {
+                document.getElementById("result").innerText = "ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง!";
+                document.getElementById("result").style.color = "red";
+            }
+            
+            
+        }
+
+        function storeValues() {
+            const username = document.getElementById("id").value;
+            const password = document.getElementById("pw").value;
+
+            // แสดงผลลัพธ์ในคอนโซล
+            console.log("ชื่อผู้ใช้:", username);
+            console.log("รหัสผ่าน:", password);       
+        }
+    </script>
+</head>
+<body>
+    <div class="center-box">
+        <h2>Enter your ID and password</h2>
+        ID: <input type="text" id="id" name="id">
+        <br><br>
+        PW: <input type="password" id="pw" name="pw">
+        <br><br>
+        <button onclick="storeValues(); incrementAndRedirect();">Click here to continue</button>
+        <p id="result"></p> <!-- เพิ่มพื้นที่สำหรับแสดงผลลัพธ์ -->
+    </div>
+</body>
+</html>
